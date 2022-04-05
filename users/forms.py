@@ -11,7 +11,7 @@ class UserRegisterForm(UserCreationForm):
     firstname = forms.CharField()
     lastname = forms.CharField()
     phone = forms.IntegerField()
-    dob = forms.DateField('%m/%d/%Y')
+    dob = forms.DateField()
     class Meta:
         model = User
         fields = ['firstname', 'lastname', 'phone', 'dob', 'username',  'email', 'password1', 'password2']
@@ -22,7 +22,7 @@ class UserUpdateForm(forms.ModelForm):
     firstname = forms.CharField()
     lastname = forms.CharField()
     phone = forms.IntegerField()
-    dob = forms.DateField('%m/%d/%Y')
+    dob = forms.DateField()
     class Meta:
         model = User
         fields = ['firstname', 'lastname', 'phone', 'dob', 'username', 'email']
