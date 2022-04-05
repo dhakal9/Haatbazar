@@ -10,8 +10,9 @@ class Post(models.Model):
     date_posted = models.DateTimeField(default=timezone.now)
     author = models.ForeignKey(User, on_delete=models.CASCADE)
     price = models.IntegerField(default=0)
+    photo = models.ImageField(default='default.jpg', upload_to='post_pic')
     def __str__(self):
-        return str(self.title)+ ": Rs" + str(self.price)
+        return str(self.photo)+ ": Rs" + str(self.price)
 
     def get_absolute_url(self):
         return reverse('post-detail', kwargs={'pk': self.pk})
