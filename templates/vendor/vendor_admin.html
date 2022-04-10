@@ -7,8 +7,8 @@
     <h1 class="title">Vendor Admin - <span class="is-capitalized">{{vendor.name}}</span></h1>
 
     <div class="mb-5">
-        <strong>My Balance: </strong> ${{vendor.get_balance}} <br>
-        <strong>My Paid Amount: </strong> ${{vendor.get_paid_amount}} 
+        <strong>My Balance: </strong> Rs.{{vendor.get_balance}} <br>
+        <strong>My Paid Amount: </strong> Rs.{{vendor.get_paid_amount}} 
     </div>
 
     <div class="box">
@@ -33,7 +33,7 @@
                         <tr>
                             <td>{{ forloop.counter }}</td>
                             <td><a href="{% url 'product:product' product.category.slug product.slug %}">{{ product.title }}</a></td>
-                            <td>${{ product.price }}</td>
+                            <td>Rs.{{ product.price }}</td>
                         </tr>
                     {% endfor %}
                 </tbody>
@@ -80,10 +80,10 @@
                                         {% if item.vendor == request.user.vendor %}
                                             <tr>
                                                 <td>{{ item.product.title }}</td>
-                                                <td>${{ item.product.price }}</td>
+                                                <td>Rs.{{ item.product.price }}</td>
                                                 <td>{{ item.quantity }}</td>
                                                 <td>{{ item.vendor_paid|yesno:"Yes,No" }}</td>
-                                                <td>${{ item.get_total_price }}</td>
+                                                <td>Rs.{{ item.get_total_price }}</td>
                                             </tr>
                                         {% endif %}
                                     {% endfor %}

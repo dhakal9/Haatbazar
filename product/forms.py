@@ -5,3 +5,4 @@ from django.forms.forms import Form
 
 class AddToCartForm(forms.Form):
     quantity = forms.IntegerField()
+

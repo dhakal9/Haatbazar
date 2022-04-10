@@ -22,4 +22,3 @@ class Vendor(models.Model):
     def get_paid_amount(self):
         items = self.items.filter(vendor_paid=True, order__vendors__in=[self.id])
         return sum((item.product.price * item.quantity) for item in items)
-
