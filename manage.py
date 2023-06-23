@@ -16,10 +16,17 @@ def main():
             "forget to activate a virtual environment?"
         ) from exc
 
+    # Configure Django settings
+    import django.conf
+    django.conf.settings.configure(
+        DEBUG=True,
+        ALLOWED_HOSTS=['*'],  # Update with your allowed hosts
+        # Add other Django settings here
+    )
 
-if __name__ == '__main__':
-    runserver.default_addr = '0.0.0.0'
-    runserver.default_port = '8000'
-    runserver.default_ipv6 = False
-    runserver.use_reloader = True
-    execute_from_command_line(sys.argv)
+    if __name__ == '__main__':
+        runserver.default_addr = '0.0.0.0'
+        runserver.default_port = '8000'
+        runserver.default_ipv6 = False
+        runserver.use_reloader = True
+        execute_from_command_line(sys.argv)
